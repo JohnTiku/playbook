@@ -1,0 +1,14 @@
+---
+-  name: tasks file for Loop
+   hosts: localhost
+   become: true
+   tasks:
+      - name: Create UCD user
+        become: true
+        user:
+          name: "{{ item.name }}"
+          group: "{{ item.groups }}"
+          system: true
+        loop:
+          - { name: 'JJTechuser1', groups: 'wheel' }
+          - { name: 'JJTechuser2', groups: 'root' }

@@ -1,0 +1,24 @@
+---
+-  name: tasks file for Loop
+   hosts: localhost
+   become: true
+   tasks:
+      - name: Create UCD group
+        become: true
+        group:
+          name: "JJTechGroup"
+          system: true
+
+      - name: Create UCD user
+        become: true
+        user:
+          name: "JJTechuser1"
+          group: "JJTechGroup"
+          system: true
+
+      - name: Create UCD user
+        become: true
+        user:
+          name: "JJTechuser2"
+          group: "JJTechGroup"
+          system: true
